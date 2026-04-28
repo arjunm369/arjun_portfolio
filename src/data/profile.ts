@@ -181,7 +181,7 @@ Recently:
       title: "Forest Management System",
       subtitle: "Resource & Access Portal",
       description: "Web-based system for managing forest resource data, user access roles, and resource tracking.",
-      tech: ["PHP", "MySQL", "HTML", "CSS"],
+      tech: ["Python", "MySQL", "HTML", "CSS"],
       link: "",
       github: "",
       features: [
