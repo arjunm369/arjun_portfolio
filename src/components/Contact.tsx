@@ -20,15 +20,42 @@ export default function Contact() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', message: '' });
-    alert('Thanks for reaching out! I\'ll get back to you soon.');
+    setSubmitStatus({ type: null, message: '' });
+    
+    try {
+      // Create FormData object to send to Web3Forms
+      const data = new FormData();
+      // Using an environment variable so the key isn't hardcoded in the codebase
+      data.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "8d1fb0fd-d7fb-4492-b46f-77411b51e9d9"); 
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("message", formData.message);
+      data.append("subject", "New Contact Form Submission from Portfolio");
+      data.append("from_name", "Portfolio Notification");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
+        setFormData({ name: '', email: '', message: '' }); // Clear the form
+      } else {
+        setSubmitStatus({ type: 'error', message: 'Something went wrong. Please try again later.' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Network error. Please try reaching out via email directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -92,6 +119,13 @@ export default function Contact() {
                     placeholder="Your message..."
                   />
                 </div>
+                
+                {submitStatus.type && (
+                  <div className={`p-4 rounded-lg text-sm font-medium ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
+                    {submitStatus.message}
+                  </div>
+                )}
+
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
