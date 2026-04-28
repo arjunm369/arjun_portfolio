@@ -17,7 +17,7 @@ export default function Experience() {
           <h2 className="text-4xl font-bold mb-4 text-center">
             Experience & <span className="gradient-text">Education</span>
           </h2>
-          <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-xl mx-auto">
             My professional journey and academic background
           </p>
           
@@ -35,16 +35,16 @@ export default function Experience() {
                 }`}
               >
                 <div className={`w-8 h-8 absolute left-0 md:left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center z-10`}>
-                  <div className="w-3 h-3 bg-white rounded-full" />
+                  <div className="w-3 h-3 bg-white dark:bg-dark-bg rounded-full" />
                 </div>
                 
                 <div className={`ml-12 md:ml-0 md:w-[45%] ${
                   index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'
                 }`}>
                   <div className="glass rounded-xl p-5">
-                    <span className="text-primary-400 text-sm">{exp.period}</span>
-                    <h3 className="text-lg font-semibold mt-1">{exp.role}</h3>
-                    <p className="text-gray-400 text-sm">{exp.company}</p>
+                    <span className="text-primary-600 dark:text-primary-400 text-sm">{exp.period}</span>
+                    <h3 className="text-lg font-semibold mt-1 text-gray-900 dark:text-white">{exp.role}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">{exp.company}</p>
                     <p className="text-gray-500 text-xs mt-2">{exp.location}</p>
                   </div>
                 </div>
@@ -62,12 +62,12 @@ export default function Experience() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  className="glass rounded-xl p-5 mb-4"
+                  className="glass rounded-xl p-5 mb-4 text-left"
                 >
                   <div className="flex justify-between items-start flex-wrap gap-2">
                     <div>
-                      <h4 className="text-lg font-semibold">{edu.degree}</h4>
-                      <p className="text-gray-400">{edu.institution}</p>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{edu.degree}</h4>
+                      <p className="text-gray-600 dark:text-gray-400">{edu.institution}</p>
                     </div>
                     <span className="text-gray-500 text-sm">{edu.period}</span>
                   </div>

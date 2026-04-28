@@ -25,8 +25,8 @@ export default function About() {
               transition={{ delay: 0.1 }}
               className="glass rounded-3xl p-8 lg:col-span-2 row-span-2 flex flex-col justify-center"
             >
-              <h3 className="text-2xl font-bold text-white mb-4">Engineer. Designer. Problem Solver.</h3>
-              <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Engineer. Designer. Problem Solver.</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed whitespace-pre-line">
                 {profileData.about}
               </p>
             </motion.div>
@@ -35,10 +35,10 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className="glass rounded-3xl p-8 flex flex-col items-center justify-center text-center bg-gradient-to-br from-primary-900/20 to-purple-900/20"
+              className="glass rounded-3xl p-8 flex flex-col items-center justify-center text-center bg-gradient-to-br from-primary-100/50 to-purple-100/50 dark:from-primary-900/20 dark:to-purple-900/20"
             >
               <div className="text-6xl font-bold gradient-text mb-2">5+</div>
-              <div className="text-gray-300 font-medium">Projects Shipped</div>
+              <div className="text-gray-700 dark:text-gray-300 font-medium">Projects Shipped</div>
             </motion.div>
 
             <motion.div
@@ -47,8 +47,8 @@ export default function About() {
               transition={{ delay: 0.3 }}
               className="glass rounded-3xl p-8 flex flex-col items-center justify-center text-center"
             >
-              <div className="text-6xl font-bold text-white mb-2">3</div>
-              <div className="text-gray-400 font-medium">Internships</div>
+              <div className="text-6xl font-bold text-gray-900 dark:text-white mb-2">3</div>
+              <div className="text-gray-600 dark:text-gray-400 font-medium">Internships</div>
             </motion.div>
 
             <motion.div
@@ -57,8 +57,8 @@ export default function About() {
               transition={{ delay: 0.4 }}
               className="glass rounded-3xl p-8 flex flex-col items-center justify-center text-center lg:col-span-3"
             >
-              <h3 className="text-xl font-bold text-white mb-2">Location</h3>
-              <div className="text-gray-400 font-medium">{profileData.location}</div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Location</h3>
+              <div className="text-gray-600 dark:text-gray-400 font-medium">{profileData.location}</div>
             </motion.div>
           </div>
         </motion.div>

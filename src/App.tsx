@@ -2,6 +2,8 @@ import React, { Suspense } from 'react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress';
+import InteractiveBackground from './components/InteractiveBackground';
+import MiniGame from './components/MiniGame';
 
 // Lazy load components below the fold
 const About = React.lazy(() => import('./components/About'));
@@ -12,13 +14,14 @@ const Contact = React.lazy(() => import('./components/Contact'));
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div className="min-h-screen bg-white dark:bg-dark-bg text-gray-900 dark:text-white transition-colors duration-500 relative">
+      <InteractiveBackground />
       <div className="noise-overlay"></div>
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main className="relative z-10 w-full overflow-hidden">
         <Hero />
-        <Suspense fallback={<div className="h-screen flex items-center justify-center text-primary-500">Loading...</div>}>
+        <Suspense fallback={<div className="h-screen flex flex-col items-center justify-center text-primary-500 gap-4"><div className="w-8 h-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin"></div><p className="text-sm font-medium tracking-widest uppercase">Loading Modules</p></div>}>
           <About />
           <Skills />
           <Projects />
@@ -26,9 +29,13 @@ export default function App() {
           <Contact />
         </Suspense>
       </main>
-      <footer className="py-8 text-center text-gray-500 text-sm">
+      <footer className="py-8 text-center text-gray-500 text-sm relative z-10 border-t border-white/5 bg-dark-bg/80 backdrop-blur-md">
         <p>&copy; {new Date().getFullYear()} Arjun M. All rights reserved.</p>
+        <p className="mt-2 text-xs opacity-50 px-4">Built with React, Vite, Framer Motion, and Tailwind CSS.</p>
       </footer>
+
+      {/* Hidden Easter Egg Game */}
+      <MiniGame />
     </div>
   );
 }

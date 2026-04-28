@@ -12,9 +12,9 @@ const SkillPill = ({ name, delay }: { name: string; delay: number }) => {
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.4, delay, ease: 'easeOut' }}
       whileHover={{ scale: 1.05 }}
-      className="glass px-4 py-2 rounded-full border border-gray-700/50 flex items-center justify-center bg-gray-800/30 hover:bg-gray-800/60 transition-colors"
+      className="glass px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700/50 flex items-center justify-center bg-gray-200/50 hover:bg-gray-300/50 dark:bg-gray-800/30 dark:hover:bg-gray-800/60 transition-colors"
     >
-      <span className="text-gray-300 font-medium text-sm">{name}</span>
+      <span className="text-gray-700 dark:text-gray-300 font-medium text-sm">{name}</span>
     </motion.div>
   );
 };
@@ -32,10 +32,10 @@ export default function Skills() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
             Technical <span className="gradient-text">Arsenal</span>
           </h2>
-          <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-center mb-16 max-w-xl mx-auto">
             Tools and technologies I use to build scalable, modern applications.
           </p>
           
@@ -48,7 +48,7 @@ export default function Skills() {
                 transition={{ delay: categoryIndex * 0.1 }}
                 className="glass rounded-3xl p-8"
               >
-                <h3 className="text-xl font-bold mb-6 text-white border-b border-gray-800 pb-4">{category}</h3>
+                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-4">{category}</h3>
                 <div className="flex flex-wrap gap-3">
                   {skills.map((skill: any, skillIndex: number) => (
                     <SkillPill

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const navItems = [
   { id: 'about', label: 'About' },
@@ -13,6 +14,7 @@ const navItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,19 +48,39 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-sm font-medium"
               >
                 {item.label}
               </button>
             ))}
+            
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all hover:scale-110 group"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? (
+                <Sun size={18} className="group-hover:rotate-90 transition-transform duration-500" />
+              ) : (
+                <Moon size={18} className="group-hover:-rotate-12 transition-transform duration-500" />
+              )}
+            </button>
           </div>
           
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-gray-600 dark:text-gray-400 hover:text-primary-500"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              className="text-gray-800 dark:text-white"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </motion.nav>
       

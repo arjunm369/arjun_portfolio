@@ -45,10 +45,10 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/20 via-dark-bg to-dark-bg" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/50 via-white to-white dark:from-primary-900/20 dark:via-dark-bg dark:to-dark-bg transition-colors duration-500" />
       
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/10 dark:bg-primary-500/10 rounded-full blur-3xl transition-opacity" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-3xl transition-opacity" />
       
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -72,29 +72,29 @@ export default function Hero() {
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-bold"
+            className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white"
           >
             <span className="gradient-text">{profileData.name}</span>
           </motion.h1>
         </div>
         
-        <div className="text-xl md:text-2xl text-gray-400 mb-2 h-8">
+        <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-2 h-8">
           <span className="gradient-text">{displayText}</span>
           <span className="animate-pulse">|</span>
         </div>
         
-        <p className="text-gray-400 max-w-xl mx-auto mt-6 text-lg">
+        <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto mt-6 text-lg relative z-10">
           {profileData.tagline}
         </p>
         
         <div className="flex flex-wrap items-center justify-center gap-4 mt-6 text-gray-500 text-sm">
           <span className="flex items-center gap-2">
-            <MapPin size={16} className="text-primary-400" />
-            {profileData.location}
+            <MapPin size={16} className="text-primary-500 dark:text-primary-400" />
+            <span className="text-gray-600 dark:text-gray-400">{profileData.location}</span>
           </span>
           <span className="flex items-center gap-2">
-            <Mail size={16} className="text-primary-400" />
-            {profileData.email}
+            <Mail size={16} className="text-primary-500 dark:text-primary-400" />
+            <span className="text-gray-600 dark:text-gray-400">{profileData.email}</span>
           </span>
         </div>
         
@@ -111,7 +111,7 @@ export default function Hero() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={scrollToContact}
-            className="px-8 py-3 glass rounded-full font-semibold text-white hover:bg-white/10 transition-all flex items-center gap-2"
+            className="px-8 py-3 glass rounded-full font-semibold text-gray-900 dark:text-white border border-gray-300 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 transition-all flex items-center gap-2"
           >
             Contact Me
             <ExternalLink size={18} />

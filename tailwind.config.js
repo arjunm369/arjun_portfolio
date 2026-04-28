@@ -24,6 +24,11 @@ export default {
           bg: '#0a0a0f',
           card: '#13131a',
           border: '#1f1f2e',
+        },
+        light: {
+          bg: '#f8fafc',
+          card: '#ffffff',
+          border: '#e2e8f0',
         }
       },
       animation: {

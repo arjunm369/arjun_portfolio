@@ -71,51 +71,51 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-xl mx-auto">
             Have a project in mind or want to collaborate? Let's talk!
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="glass rounded-2xl p-8">
-              <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-gray-400 text-sm mb-2">Name</label>
+                  <label className="block text-gray-600 dark:text-gray-400 text-sm mb-2">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-primary-500 focus:outline-none transition-colors"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-400 text-sm mb-2">Email</label>
+                  <label className="block text-gray-600 dark:text-gray-400 text-sm mb-2">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-primary-500 focus:outline-none transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-400 text-sm mb-2">Message</label>
+                  <label className="block text-gray-600 dark:text-gray-400 text-sm mb-2">Message</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:border-primary-500 focus:outline-none transition-colors resize-none"
                     placeholder="Your message..."
                   />
                 </div>
@@ -147,25 +147,25 @@ export default function Contact() {
             
             <div className="space-y-6">
               <div className="glass rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-6">Contact Info</h3>
+                <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Contact Info</h3>
                 <div className="space-y-4">
                   <a
                     href={`mailto:${profileData.email}`}
-                    className="flex items-center gap-4 text-gray-400 hover:text-primary-400 transition-colors"
+                    className="flex items-center gap-4 text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                   >
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300">
                       <Mail size={20} />
                     </div>
                     <span>{profileData.email}</span>
                   </a>
-                  <div className="flex items-center gap-4 text-gray-400">
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                  <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400">
+                    <div className="w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300">
                       <Phone size={20} />
                     </div>
                     <span>{profileData.phone}</span>
                   </div>
-                  <div className="flex items-center gap-4 text-gray-400">
-                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                  <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400">
+                    <div className="w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300">
                       <MapPin size={20} />
                     </div>
                     <span>{profileData.location}</span>
@@ -173,14 +173,14 @@ export default function Contact() {
                 </div>
               </div>
               
-              <div className="glass rounded-2xl p-8">
+              <div className="glass rounded-2xl p-8 text-gray-900 dark:text-white">
                 <h3 className="text-xl font-semibold mb-6">Social Links</h3>
                 <div className="flex gap-4">
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
                     href={profileData.linkedin}
                     target="_blank"
-                    className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-primary-400 transition-colors"
+                    className="w-12 h-12 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                   >
                     <LinkedinIcon />
                   </motion.a>
@@ -188,7 +188,7 @@ export default function Contact() {
                     whileHover={{ scale: 1.1, y: -2 }}
                     href={profileData.github}
                     target="_blank"
-                    className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-primary-400 transition-colors"
+                    className="w-12 h-12 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                   >
                     <GithubIcon />
                   </motion.a>
