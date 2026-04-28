@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ExternalLink, Mail, MapPin } from 'lucide-react';
+import { ExternalLink, Mail, MapPin } from 'lucide-react';
 import { profileData } from '../data/profile';
 
 const roles = [
@@ -56,18 +56,27 @@ export default function Hero() {
         transition={{ duration: 0.6 }}
         className="text-center z-10 px-4"
       >
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-primary-400 font-medium mb-4 tracking-widest uppercase text-sm"
-        >
-          Hello, I'm
-        </motion.p>
+        <motion.div className="overflow-hidden mb-4">
+          <motion.p
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+            className="text-primary-400 font-medium tracking-widest uppercase text-sm"
+          >
+            Hello, I'm
+          </motion.p>
+        </motion.div>
         
-        <h1 className="text-5xl md:text-7xl font-bold mb-4">
-          <span className="gradient-text">{profileData.name}</span>
-        </h1>
+        <div className="overflow-hidden mb-4">
+          <motion.h1 
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+            className="text-5xl md:text-7xl font-bold"
+          >
+            <span className="gradient-text">{profileData.name}</span>
+          </motion.h1>
+        </div>
         
         <div className="text-xl md:text-2xl text-gray-400 mb-2 h-8">
           <span className="gradient-text">{displayText}</span>
@@ -91,16 +100,16 @@ export default function Hero() {
         
         <div className="flex flex-wrap justify-center gap-4 mt-10">
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={scrollToProjects}
-            className="px-8 py-3 bg-gradient-to-r from-primary-500 to-purple-500 rounded-full font-semibold text-white shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 transition-all"
+            className="px-8 py-3 bg-gradient-to-r from-primary-500 to-purple-500 rounded-full font-semibold text-white shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 transition-all"
           >
             View Projects
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={scrollToContact}
             className="px-8 py-3 glass rounded-full font-semibold text-white hover:bg-white/10 transition-all flex items-center gap-2"
           >
@@ -112,11 +121,17 @@ export default function Hero() {
       
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ delay: 1, duration: 2, repeat: Infinity }}
+        animate={{ opacity: 0.5 }}
+        transition={{ delay: 1, duration: 2 }}
         className="absolute bottom-10"
       >
-        <ChevronDown className="text-gray-500" size={32} />
+        <div className="w-[30px] h-[50px] border-2 border-gray-500 rounded-full flex justify-center p-2">
+          <motion.div 
+            animate={{ y: [0, 15, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-2 h-2 bg-gray-500 rounded-full"
+          />
+        </div>
       </motion.div>
     </section>
   );
