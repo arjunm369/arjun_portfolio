@@ -48,7 +48,7 @@ export default function FloatingAssistant() {
 
   // Click interaction state
   const clickCountRef = useRef(0);
-  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Ensure voices are loaded (Chrome quirk)
   React.useEffect(() => {
