@@ -50,14 +50,15 @@ export default function Experience() {
                 </div>
               </motion.div>
             ))}
+          </div>
             
-            <div className="mt-12">
-              <h3 className="text-2xl font-bold mb-6 text-center">
-                <span className="gradient-text">Education</span>
-              </h3>
-              
-              {profileData.education.map((edu, index) => (
-                <motion.div
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">
+              <span className="gradient-text">Education</span>
+            </h3>
+            
+            {profileData.education.map((edu, index) => (
+              <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -73,7 +74,6 @@ export default function Experience() {
                   </div>
                 </motion.div>
               ))}
-            </div>
           </div>
         </motion.div>
       </div>
