@@ -11,9 +11,9 @@ export const profileData = {
   about: `I build scalable digital products from the database to the browser. Currently an MCA student, I specialize in React, Node.js, and Kotlin. 
 
 Recently:
-🚀 Shipped 8 production-ready products (Web, Mobile, IoT)
-📄 Published 2 peer-reviewed research papers on AI/NLP
-⚡ Optimized payment pipelines and ticketing algorithms.`,
+> Shipped 8 production-ready products (Web, Mobile, IoT)
+> Published 2 peer-reviewed research papers on AI/NLP
+>Optimized payment pipelines and ticketing algorithms.`,
 
   skills: {
     "Languages": [

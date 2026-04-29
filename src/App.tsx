@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress';
 import InteractiveBackground from './components/InteractiveBackground';
 import MiniGame from './components/MiniGame';
+import FloatingAssistant from './components/FloatingAssistant';
 
 // Lazy load components below the fold
 const About = React.lazy(() => import('./components/About'));
@@ -36,6 +37,9 @@ export default function App() {
 
       {/* Hidden Easter Egg Game */}
       <MiniGame />
+
+      {/* Floating 3D AI Assistant */}
+      <FloatingAssistant />
     </div>
   );
 }
