@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const navItems = [
@@ -15,6 +16,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +27,14 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const goToSection = (id: string) => {
+    if (location.pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', `/#${id}`);
+    } else {
+      navigate(`/#${id}`);
+    }
+
     setIsMobileMenuOpen(false);
   };
 
@@ -39,15 +48,15 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
-          <a href="#" className="text-xl font-bold gradient-text">
+          <Link to="/" className="text-xl font-bold gradient-text">
             Arjun M
-          </a>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => goToSection(item.id)}
                 className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors text-sm font-medium"
               >
                 {item.label}
@@ -96,7 +105,7 @@ export default function Navbar() {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => goToSection(item.id)}
                   className="text-2xl font-bold text-gray-300 hover:text-white transition-colors"
                 >
                   {item.label}

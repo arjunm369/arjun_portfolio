@@ -1,3 +1,19 @@
+export type Project = {
+  id: number;
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tech: string[];
+  link: string;
+  github: string;
+  image?: string;
+  video?: string;
+  features?: string[];
+  targetUsers?: string[];
+  impact?: string;
+};
+
 export const profileData = {
   name: "Arjun M",
   role: "Software Development Engineer",
@@ -59,6 +75,7 @@ Recently:
   projects: [
     {
       id: 1,
+      slug: "trainease-ai",
       title: "TrainEase AI",
       subtitle: "Booking Engine processing seating distribution in real-time.",
       description: "Full-stack railway booking platform handling real-time seat mapping and dynamic allocation algorithms.",
@@ -79,6 +96,7 @@ Recently:
     },
     {
       id: 2,
+      slug: "vehicle-service-management",
       title: "Vehicle Service Management",
       subtitle: "Full-stack Service Management System & Spare Parts E-Commerce.",
       description: "End-to-end service booking platform handling role-based access, automated workflows, and inventory metrics.",
@@ -99,6 +117,7 @@ Recently:
     },
     {
       id: 3,
+      slug: "motoguard",
       title: "MotoGuard",
       subtitle: "IoT Anti-Theft System with real-time analytics.",
       description: "Developed hardware-to-cloud security pipeline achieving 1-2 sec alerting capabilities via FCM.",
@@ -119,6 +138,7 @@ Recently:
     },
     {
       id: 4,
+      slug: "ai-resume-parser",
       title: "AI Resume Parser",
       subtitle: "Candidate Intelligence API",
       description: "REST API extracting structured resume data from PDF/DOCX using Hugging Face NLP. LLM-powered Q&A endpoint for natural language candidate queries.",
@@ -139,6 +159,7 @@ Recently:
     },
     {
       id: 5,
+      slug: "medicine-reminder-app",
       title: "Medicine Reminder App",
       subtitle: "Android Medication Management",
       description: "Android app for medication management with automated daily reminders, stock alerts, Firebase Firestore sync, and secure Firebase Authentication.",
@@ -159,6 +180,7 @@ Recently:
     },
     {
       id: 6,
+      slug: "expense-tracker",
       title: "Expense Tracker",
       subtitle: "Desktop Finance Application",
       description: "Java desktop application for expense logging with budget tracking, financial summaries, and JDBC-MySQL connectivity.",
@@ -178,12 +200,14 @@ Recently:
     },
     {
       id: 7,
+      slug: "forest-management-system",
       title: "Forest Management System",
       subtitle: "Resource & Access Portal",
       description: "Web-based system for managing forest resource data, user access roles, and resource tracking.",
       tech: ["Python", "MySQL", "HTML", "CSS"],
       link: "",
-      github: "",
+      github: "https://github.com/arjunm369/Forest-Management-System-Using-Python-Django-And-MySQL",
+      video: "/videos/forest.mp4",
       features: [
         "Resource data management",
         "User role-based access",
@@ -196,6 +220,7 @@ Recently:
     },
     {
       id: 8,
+      slug: "blood-bank-management",
       title: "Blood Bank Management",
       subtitle: "Donor-Recipient Coordination",
       description: "Management portal for blood inventory tracking, donor-recipient matching, and request management.",
